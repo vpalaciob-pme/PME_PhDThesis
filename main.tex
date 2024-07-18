@@ -1,0 +1,117 @@
+% ---- ETD Document Class and Useful Packages ---- %
+% v1.2.0 released July 7, 2022.
+% https://github.com/k4rtik/uchicago-dissertation
+\documentclass{ucetd}
+
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+%% \graphicspath{ {./images/} }
+\usepackage{mathtools}  % loads amsmath
+\usepackage{amssymb}    % loads amsfonts
+\usepackage{amsthm}
+%% User-defined packages
+
+\usepackage{epstopdf}%This line makes .eps figures into .pdf - please comment out if not required.
+
+\usepackage{indentfirst}
+\usepackage[titles]{tocloft}
+\usepackage[numbers,compress]{natbib}
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}
+\makeatother
+% Styling the ToC, LoF
+\renewcommand{\cftchapfont}{\bfseries}
+
+%% Use these commands to set biographic information for the title page:
+\newcommand{\thesistitle}{Title goes here}
+\newcommand{\thesisauthor}{Student name}
+\department{ }
+\division{ Prtizker School of Molecular Engineering }
+\degree{Doctor of Philosophy}
+\date{2023}
+
+\title{\thesistitle}
+\author{\thesisauthor}
+
+%% Use these commands to set a dedication and epigraph text
+\dedication{Dedication Text}
+\epigraph{ Epigraph }
+
+\usepackage{doi}
+\usepackage{xurl}
+\hypersetup{bookmarksnumbered,
+            unicode,
+            linktoc=all,
+            pdftitle={\thesistitle},
+            pdfauthor={\thesisauthor},
+            pdfsubject={},                                % Add subject/description
+            % pdfkeywords={keyword1, keyword2, keyword3}, % Uncomment and revise keywords
+            pdfborder={0 0 0}}
+% See https://github.com/k4rtik/ucetd-latex/issues/1
+\makeatletter
+\let\ORG@hyper@linkstart\hyper@linkstart
+\protected\def\hyper@linkstart#1#2{%
+  \lowercase{\ORG@hyper@linkstart{#1}{#2}}}
+\makeatother
+
+\begin{document}
+
+\fontfamily{ppl}\selectfont
+
+%% Basic setup commands
+% If you don't want a title page comment out the next line and uncomment the line after it:
+\maketitle
+%\omittitle
+
+% These lines can be commented out to disable the copyright/dedication/epigraph pages
+\makecopyright
+\makededication
+\makeepigraph
+
+%% Make the various tables of contents
+\tableofcontents
+\listoffigures
+\listoftables
+
+\abstract
+% Enter Abstract here
+\input{abstract}
+
+\acknowledgments
+% Enter Acknowledgements here
+\input{acks}
+
+\mainmatter
+% Main body of text follows
+
+% Introduction
+\input{intro}
+
+% Soft Matter 2020 - Hybrid BPs and Small 2021?
+\input{Paper1/manuscript}
+
+% Soft Matter 2023 - Toroids
+\input{Paper2/manuscript}
+
+% PRX 2023 - Topological
+\input{Paper3/manuscript}
+
+% Prospective work
+\input{Future/manuscript}
+
+\input{conclusions}
+
+% Format a LaTeX bibliography
+
+%\bibliographystyle{unsrtnat}
+\makebibliography
+\nocite{*}
+
+% Figures and tables, if you decide to leave them to the end
+%\input{figure}
+%\input{table}
+ % Closing change of font statement
+\end{document}
