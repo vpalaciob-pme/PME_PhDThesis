@@ -70,8 +70,6 @@
 			IN CANDIDACY FOR THE DEGREE OF\\
 			\MakeUppercase{\@degree}\\
 			\ \\
-			DEPARTMENT OF \MakeUppercase{\@department}\\
-			\vspace{0.8in}\ \\
 			\ \\
 			\vspace{0.8in}
 			BY\\
@@ -433,3 +431,4 @@
     \oldlistoffigures
   \end{singlespace}
 }
+
